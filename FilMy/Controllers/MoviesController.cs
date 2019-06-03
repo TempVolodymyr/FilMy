@@ -1,4 +1,5 @@
 ﻿using FilMy.Models;
+using FilMy.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,19 @@ namespace FilMy.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek" };
-            return View(movie);
+
+            var customers = new List<Customer> {
+            new Customer { Name = "customer1"},
+            new Customer { Name = "customer2"} };
+
+            var viewmodel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewmodel);
         }
+       
     }
 }
